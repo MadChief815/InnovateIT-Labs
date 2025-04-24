@@ -1,0 +1,15 @@
+Installed Zustand using npm install zustand.
+
+Created a Zustand store to manage global state. This store holds the customer, loanDetails, dataChanged, firstView, and LoanInfoView states along with their setters. Interfaces such as Customer, Loan, LoanInfoProps, and Repayment were also defined inside the store for centralized typing.
+
+Moved the customer state from local state in the CustomerInfo screen to Zustand. Also moved the related interfaces (Customer, Loan) from the component file to the Zustand store.
+
+Updated the data fetching logic in the CustomerInfo screen to only fetch customer data when it's the first time (firstView) or when some data has changed (dataChanged). These flags are now stored and managed via Zustand.
+
+Added the useIsFocused hook in CustomerInfo to detect when the screen is focused, and combined it with the Zustand flags to prevent unnecessary API calls.
+
+Set loading to false and end of the customer data fetch logic in CustomerInfo to ensure the loading indicator stops correctly.
+
+Zustand is now used in the CustomerInfo, AddLoan, and LoanInfo screens.
+
+The Zustand store allows state to persist throughout the app's lifecycle until the app is closed. Unlike local component state, Zustand state does not reset when navigating between screens, which improves performance and data consistency across multiple views.
