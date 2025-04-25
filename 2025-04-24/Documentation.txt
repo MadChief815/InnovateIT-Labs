@@ -1,3 +1,5 @@
+// This is just a solution to the problem, and there are some bugs that need to be fixed. If you approve it, I’ll fix the bugs and add this feature to the other screens.
+
 Installed Zustand using npm install zustand.
 
 Created a Zustand store to manage global state. This store holds the customer, loanDetails, dataChanged, firstView, and LoanInfoView states along with their setters. Interfaces such as Customer, Loan, LoanInfoProps, and Repayment were also defined inside the store for centralized typing.
