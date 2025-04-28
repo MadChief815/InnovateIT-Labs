@@ -1,0 +1,3 @@
+To pass the fetched customer data between screens, I used navigation.setParams({ customers: response.data.customers || [] }) to set the customers in the navigation parameters. On the receiving screen, I accessed the customers with const customers = route.params?.customers || []. This allowed me to create a custom modal that displays the customer data. And I created a custom modal and it should the search result.
+
+Also this code will only work in CustomerList screen because I used route.name === "CustomerList".
