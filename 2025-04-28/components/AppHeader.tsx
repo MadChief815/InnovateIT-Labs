@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Dimensions, TouchableOpacity, FlatList, TextInput } from "react-native";
 import {
   Appbar,
@@ -9,14 +9,15 @@ import {
   Button,
   Provider as PaperProvider,
 } from "react-native-paper";
-import * as SecureStore from "expo-secure-store"
-import { theme } from "../utils/theme"
+import * as SecureStore from "expo-secure-store";
+import { theme } from "../utils/theme";
+
 
 const CustomHeader = ({ navigation, route }: { navigation: any, route: any }) => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [searchModalVisible, setSearchModalVisible] = useState(false); // For the search modal
   const [searchInput, setSearchInput] = useState(""); // For the search input
-  const customers = route.params?.customers || []; // Access customers from params
+  const [customers, setCustomers] = useState(route.params?.customers || []); // Store customers in state
   const [filteredCustomers, setFilteredCustomers] = useState(customers); // Filtered customers
 
   const openMenu = () => setMenuVisible(true);
@@ -32,13 +33,26 @@ const CustomHeader = ({ navigation, route }: { navigation: any, route: any }) =>
     }
   };
 
+  // Update customers state whenever route.params?.customers changes
+  useEffect(() => {
+    setCustomers(route.params?.customers || []);
+    setFilteredCustomers(route.params?.customers || []); // Reset filtered customers as well
+  }, [route.params?.customers]);
+
   // Handle search input change
   const handleSearchInputChange = (text: string) => {
     setSearchInput(text);
-    const filtered = customers.filter((customer: any) =>
-      customer.customer_name.toLowerCase().includes(text.toLowerCase())
-    );
-    setFilteredCustomers(filtered);
+
+    if (text.trim() === "") {
+      // Reset to full list if input is empty
+      setFilteredCustomers(customers);
+    } else {
+      // Filter customers based on the search input
+      const filtered = customers.filter((customer: any) =>
+        customer.customer_name.toLowerCase().includes(text.toLowerCase())
+      );
+      setFilteredCustomers(filtered);
+    }
   };
 
   return (
