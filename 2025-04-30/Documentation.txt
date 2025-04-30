@@ -1,0 +1,2 @@
+1. Installed validator.js using this command "npm install --save-dev @types/validator"
+2. Added validator checks in the handleLogin function to validate email format and ensure the password meets minimum length requirements.
