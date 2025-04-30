@@ -1,0 +1,2 @@
+1. Installed react-hook, zod and @hookform/resolvers using this command "npm install react-hook-form zod @hookform/resolvers"
+2. Added Zod schema validation for the handleAddExpense function to ensure the expense_amount is a non-empty numeric value, the expense_date is provided, and the description is optional. Integrated this validation with React Hook Form using the zodResolver to handle form state and validation seamlessly.
