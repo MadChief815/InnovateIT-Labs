@@ -1,0 +1,12 @@
+
+1. Created a new project using npx create-expo-app@latest finance_front_end --template and chose bare as the template.
+
+2. Ran gradlew clean and npm run android to test.
+
+3. Deleted the node_modules folder, package-lock.json, and package.json.
+
+4. Copied all necessary files, %ProgramData% folder and the src folder.
+
+5. Ran npm install and then npm run android, but got version mismatch errors. To fix the issue, ran npm install react@19.0.0 react-dom@19.0.0.Then ran npm install react-test-renderer@19.0.0, which resolved the errors.
+
+6. Since Axios was using an HTTP URL, all HTTP requests were blocked on Android in production. To allow HTTP traffic, added  android:usesCleartextTraffic="true" to the <application ... > tag in AndroidManifest.xml. After that, ran gradlew clean and then gradlew assembleRelease.
