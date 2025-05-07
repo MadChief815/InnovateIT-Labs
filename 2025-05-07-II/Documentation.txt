@@ -1,0 +1,1 @@
+To fix the status bar issue, I implemented <StatusBar backgroundColor="#0000FF" barStyle="light-content" /> inside the SafeAreaProvider component in index.js, but somehow this doesn’t work in Expo Go. Now it only works in the APK.
