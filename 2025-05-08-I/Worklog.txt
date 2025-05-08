@@ -1,0 +1,1 @@
+1. Implemented the loan issue data to the LoanInfo screen for interest-only loan
