@@ -46,7 +46,7 @@ const App = () => {
 
 
             <Stack.Navigator
-              initialRouteName="DashBoard"
+              initialRouteName="Login"
               screenOptions={{
                 header: (props) => <CustomHeader {...props} />,
               }}
