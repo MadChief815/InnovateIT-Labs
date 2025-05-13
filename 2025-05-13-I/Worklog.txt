@@ -1,0 +1,6 @@
+Update Notes
+This update addresses layout issues and a functional bug in the app.
+
+On Android 15 and 16, there was an empty space appearing at the top and bottom of the screen. The issue was caused by the Appbar.Header component from React Native Paper. To resolve this, I removed Appbar.Header and replaced it with a simple View component. I also used react-native-vector-icons to render the header icons manually, which fixed the spacing issue.
+
+Additionally, there was a bug in the customer list search function. This bug has been identified and fixed as part of this update.
