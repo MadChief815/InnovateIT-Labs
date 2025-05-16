@@ -1,0 +1,5 @@
+I implemented background SMS notifications in a Add Loan Screen. The process begins when a user fills out a loan form and taps the "Add Loan" button. The handleAddLoan function first checks whether all required fields are filled, dynamically based on the selected loan type either Interest-Only Loan or Installment Loan.
+
+Once validated, the app sends the loan data to the backend API using a token for authentication. If the API call is successful, it constructs a tailored SMS message containing relevant loan details and sends it directly to the customer's mobile number in the background using a custom native Android module (SmsModule) that I personally developed.
+
+This module handles silent SMS delivery using Android's native SMS APIs, along with runtime permission management via PermissionsAndroid. Throughout the process, the user receives real-time feedback through toast notifications, making the flow seamless and user-friendly.
